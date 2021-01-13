@@ -1,11 +1,9 @@
-"use strict";
-
 interface IProps {
   input: string;
   onChange: (text: string) => void;
 }
 
-const SearchBar = ({ input, onChange }: IProps) => {
+const SearchBarComponent = ({ input, onChange }: IProps) => {
   const BarStyling = {
     width: "20rem",
     background: "#F2F1F9",
@@ -23,4 +21,4 @@ const SearchBar = ({ input, onChange }: IProps) => {
   );
 };
 
-export default SearchBar;
+export default SearchBarComponent;

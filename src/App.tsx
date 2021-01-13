@@ -1,13 +1,14 @@
-"use strict";
-
 import React, { useState } from "react";
 import logo from "./logo.svg";
-import SearchBar from "./SearchBar";
-
+import SearchBarComponent from "./SearchBarComponent";
+import SearchResultListComponent from "./SearchResultListComponent";
+import { SearchResult } from "./SearchResult";
 import "./App.css";
 
 function App() {
   const [input, setInput] = useState("");
+  const [searchResults, setSearchResults] = useState(Array<SearchResult>());
+
   const updateInput = async (text: string) => {
     setInput(text);
 
@@ -23,17 +24,25 @@ function App() {
       }
     )
       .then((response) => response.json())
-      .then((movies) => {
-        console.log(`Search Results: ${JSON.stringify(movies)}`);
+      .then((searchResponse) => {
+        const searchResponseResults: SearchResult[] = searchResponse["Search"];
+        if (Array.isArray(searchResponseResults)) {
+          setSearchResults(searchResponseResults);
+        } else {
+          setSearchResults([]);
+        }
       })
       .catch((error) => {
-        console.log(error);
+        console.log(`Something went wrong: ${error}`);
       });
   };
   return (
     <div>
       <header>Shoppies</header>
-      <SearchBar input={input} onChange={updateInput} />
+      <SearchBarComponent input={input} onChange={updateInput} />
+      {searchResults.length > 0 ? (
+        <SearchResultListComponent results={searchResults} />
+      ) : null}
     </div>
   );
 }
