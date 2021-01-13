@@ -10,6 +10,25 @@ function App() {
   const [input, setInput] = useState("");
   const updateInput = async (text: string) => {
     setInput(text);
+
+    fetch(
+      `http://www.omdbapi.com/?apikey=c923b464&s=${encodeURIComponent(
+        text
+      )}&type=movie`,
+      {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then((movies) => {
+        console.log(`Search Results: ${JSON.stringify(movies)}`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div>
