@@ -7,7 +7,7 @@ interface IProps {
 
 const SearchContainerComponent = ({ input, onChange }: IProps) => {
   return (
-    <div className="App-header">
+    <div className={"search-container"}>
       <SearchBarComponent input={input} onChange={onChange} />
     </div>
   );

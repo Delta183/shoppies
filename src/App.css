@@ -27,6 +27,26 @@
   margin-left: 12px;
 }
 
+.search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  background-color: blue;
+}
+
+.search-bar {
+  background: #f2f1f9;
+  border: 3px solid black;
+  padding: 0.5rem;
+}
+
 .title-logo {
   height: 7vmin;
   pointer-events: none;
