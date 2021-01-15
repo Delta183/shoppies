@@ -4,6 +4,7 @@ import SearchResultComponent from "./SearchResultComponent";
 interface IProps {
   results: SearchResult[];
   query: string;
+  onResultClick: (imdbID: string) => void;
 }
 
 const SearchResultListComponent = (props: IProps) => {
@@ -14,7 +15,14 @@ const SearchResultListComponent = (props: IProps) => {
       </div>
       {props.results.map((result) => {
         // This part calls on the SearchResultComponent which are all the titles
-        return <SearchResultComponent key={result.imdbID} result={result} />;
+        return (
+          <SearchResultComponent
+            key={result.imdbID}
+            imdbID={result.imdbID}
+            result={result}
+            onResultClick={props.onResultClick}
+          />
+        );
       })}
     </div>
   );

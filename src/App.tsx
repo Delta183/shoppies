@@ -9,6 +9,10 @@ function App() {
   const [input, setInput] = useState("");
   const [searchResults, setSearchResults] = useState(Array<SearchResult>());
 
+  const onSearchResultClick = async (key: string) => {
+    console.log(`did click: ${key}`);
+  };
+
   const onSearchBarTextChange = async (text: string) => {
     setInput(text);
 
@@ -43,7 +47,11 @@ function App() {
         input={input}
         onChange={onSearchBarTextChange}
       />
-      <ContentContainerComponent results={searchResults} query={input} />
+      <ContentContainerComponent
+        results={searchResults}
+        query={input}
+        onResultClick={onSearchResultClick}
+      />
     </div>
   );
 }
