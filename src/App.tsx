@@ -4,6 +4,7 @@ import SearchBarComponent from "./SearchBarComponent";
 import SearchResultListComponent from "./SearchResultListComponent";
 import { SearchResult } from "./SearchResult";
 import "./App.css";
+import ContentHeadersComponent from "./ContentHeadersComponent";
 
 function App() {
   const [input, setInput] = useState("");
@@ -38,8 +39,11 @@ function App() {
   };
   return (
     <div>
-      <header>Shoppies</header>
-      <SearchBarComponent input={input} onChange={updateInput} />
+      <header className="App">Shoppies</header>
+      <div className="App-header">
+        <SearchBarComponent input={input} onChange={updateInput} />
+      </div>
+      <ContentHeadersComponent/>
       {searchResults.length > 0 ? (
         <SearchResultListComponent results={searchResults} />
       ) : null}

@@ -6,9 +6,18 @@ interface IProps {
 }
 
 const SearchResultListComponent = ({ results }: IProps) => {
+  const listStyling = {
+    width: "30rem",
+    background: "#F2F1F9",
+    height: "10vmax",
+    position: "relative" as const,
+    left: "80px",
+    fontsize: "15px",
+  };
   return (
-    <div>
+    <div style={listStyling}>
       {results.map((result) => {
+        // This part calls on the SearchResultComponent which are all the titles
         return <SearchResultComponent key={result.imdbID} result={result} />;
       })}
     </div>
