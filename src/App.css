@@ -1,11 +1,6 @@
-.App {
-  text-align: left;
-  height: 10vmin;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: left;
+.title-label {
   font-size: 50px;
+  margin-left: 12px;
 }
 
 .app-container {
@@ -17,13 +12,28 @@
   padding-bottom: 40px;
 }
 
-.App-logo {
-  height: 40vmin;
+.title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.title-logo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.title-logo {
+  height: 7vmin;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
+  .title-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }

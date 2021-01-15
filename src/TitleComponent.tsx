@@ -1,5 +1,14 @@
+import shopifyLogo from "./shopify_logo.png";
+
 const TitleComponent = () => {
-  return <header className="App">Shoppies</header>;
+  return (
+    <div className={"title-container"}>
+      <div className={"title-logo-container"}>
+        <img src={shopifyLogo} className="title-logo" alt="logo" />
+      </div>
+      <div className={"title-label"}>Shoppies</div>
+    </div>
+  );
 };
 
 export default TitleComponent;
