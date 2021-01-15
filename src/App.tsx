@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
-import SearchBarComponent from "./SearchBarComponent";
-import SearchResultListComponent from "./SearchResultListComponent";
 import { SearchResult } from "./SearchResult";
 import "./App.css";
-import ContentHeadersComponent from "./ContentHeadersComponent";
+import TitleComponent from "./TitleComponent";
+import SearchContainerComponent from "./SearchContainerComponent";
+import ContentContainerComponent from "./ContentContainerComponent";
 
 function App() {
   const [input, setInput] = useState("");
   const [searchResults, setSearchResults] = useState(Array<SearchResult>());
 
-  const updateInput = async (text: string) => {
+  const onSearchBarTextChange = async (text: string) => {
     setInput(text);
 
     fetch(
@@ -39,14 +38,12 @@ function App() {
   };
   return (
     <div>
-      <header className="App">Shoppies</header>
-      <div className="App-header">
-        <SearchBarComponent input={input} onChange={updateInput} />
-      </div>
-      <ContentHeadersComponent/>
-      {searchResults.length > 0 ? (
-        <SearchResultListComponent results={searchResults} />
-      ) : null}
+      <TitleComponent />
+      <SearchContainerComponent
+        input={input}
+        onChange={onSearchBarTextChange}
+      />
+      <ContentContainerComponent results={searchResults} />
     </div>
   );
 }
