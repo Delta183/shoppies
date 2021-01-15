@@ -1,6 +1,5 @@
 import { SearchResult } from "./SearchResult";
 import SearchResultListComponent from "./SearchResultListComponent";
-import ContentHeadersComponent from "./ContentHeadersComponent";
 
 interface IProps {
   results: SearchResult[];
@@ -8,11 +7,16 @@ interface IProps {
 
 const ContentContainerComponent = ({ results }: IProps) => {
   return (
-    <div>
-      <ContentHeadersComponent />
-      {results.length > 0 ? (
-        <SearchResultListComponent results={results} />
-      ) : null}
+    <div className={"content-container"}>
+      <div className={"content-list-container"}>
+        <div className={"content-list-header"}>Movie Results</div>
+        {results.length > 0 ? (
+          <SearchResultListComponent results={results} />
+        ) : null}
+      </div>
+      <div className={"content-list-container"}>
+        <div className={"content-list-header"}>Nominated</div>
+      </div>
     </div>
   );
 };

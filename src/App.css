@@ -8,6 +8,24 @@
   margin-bottom: 6px;
 }
 
+.content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.content-list-header {
+  background: #f2f3;
+  text-align: center;
+}
+
+.content-list-container {
+  width: 48%;
+}
+
 .app-container {
   display: flex;
   flex-direction: column;
