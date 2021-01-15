@@ -8,9 +8,25 @@ import ContentContainerComponent from "./ContentContainerComponent";
 function App() {
   const [input, setInput] = useState("");
   const [searchResults, setSearchResults] = useState(Array<Movie>());
+  const [nominations, setNominations] = useState(Array<Movie>());
 
-  const onSearchResultClick = async (key: string) => {
-    console.log(`did click: ${key}`);
+  const onSearchResultClick = async (imdbID: string) => {
+    var foundIndex = -1;
+    for (var i = 0; i < searchResults.length; i++) {
+      const searchResult = searchResults[i];
+      if (searchResult.imdbID === imdbID) {
+        foundIndex = i;
+        break;
+      }
+    }
+
+    if (foundIndex !== -1) {
+      // TODO: Remove if already existing in nominations
+      const foundResult = searchResults[foundIndex];
+      const existingNominations = [...nominations];
+      existingNominations.push(foundResult);
+      setNominations(existingNominations);
+    }
   };
 
   const onSearchBarTextChange = async (text: string) => {
@@ -49,6 +65,7 @@ function App() {
       />
       <ContentContainerComponent
         results={searchResults}
+        nominations={nominations}
         query={input}
         onResultClick={onSearchResultClick}
       />

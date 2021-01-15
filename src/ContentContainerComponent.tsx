@@ -1,8 +1,11 @@
+import { nodeModuleNameResolver } from "typescript";
 import { Movie } from "./Movie";
+import NominationsListComponent from "./NominationsListComponent";
 import SearchResultListComponent from "./SearchResultListComponent";
 
 interface IProps {
   results: Movie[];
+  nominations: Movie[];
   query: string;
   onResultClick: (imdbID: string) => void;
 }
@@ -15,9 +18,7 @@ const ContentContainerComponent = (props: IProps) => {
         query={props.query}
         onResultClick={props.onResultClick}
       />
-      <div className={"content-list-container"}>
-        <div className={"content-list-header"}>Nominated</div>
-      </div>
+      <NominationsListComponent nominations={props.nominations} />
     </div>
   );
 };
