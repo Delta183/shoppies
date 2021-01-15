@@ -43,7 +43,7 @@ function App() {
         input={input}
         onChange={onSearchBarTextChange}
       />
-      <ContentContainerComponent results={searchResults} />
+      <ContentContainerComponent results={searchResults} query={input} />
     </div>
   );
 }
