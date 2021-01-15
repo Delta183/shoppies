@@ -5,8 +5,15 @@ interface IProps {
   result: SearchResult;
 }
 
-const SearchResultComponent = ({ result }: IProps) => {
-  return <header>{result.Title}</header>;
+const SearchResultComponent = (props: IProps) => {
+  return (
+    <div className={"search-result-container"}>
+      <div>
+        {props.result.Title} ({props.result.Year})
+      </div>
+      <button>Nominate</button>
+    </div>
+  );
 };
 
 export default SearchResultComponent;
