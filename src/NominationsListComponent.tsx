@@ -1,5 +1,5 @@
 import { Movie } from "./Movie";
-import SearchResultComponent from "./SearchResultComponent";
+import NominationComponent from "./NominationComponent";
 
 interface IProps {
   nominations: Movie[];
@@ -9,14 +9,12 @@ const NominationsListComponent = (props: IProps) => {
   return (
     <div className={"content-list-container"}>
       <div className={"content-list-header"}>Nominations</div>
-      {props.nominations.map((result) => {
-        // This part calls on the SearchResultComponent which are all the titles
+      {props.nominations.map((nomination) => {
         return (
-          <SearchResultComponent
-            key={result.imdbID}
-            imdbID={result.imdbID}
-            result={result}
-            onResultClick={() => {}}
+          <NominationComponent
+            key={nomination.imdbID}
+            imdbID={nomination.imdbID}
+            nomination={nomination}
           />
         );
       })}

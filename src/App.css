@@ -36,6 +36,16 @@
   padding-bottom: 6px;
 }
 
+.nomination-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
 .content-list-container {
   width: 48%;
 }
