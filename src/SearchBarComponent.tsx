@@ -5,9 +5,9 @@ interface IProps {
 
 const SearchBarComponent = ({ input, onChange }: IProps) => {
   const BarStyling = {
-    width: "20rem",
+    width: "80rem",
     background: "#F2F1F9",
-    border: "none",
+    border: "5px solid black",
     padding: "0.5rem",
   };
   return (
