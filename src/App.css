@@ -3,6 +3,11 @@
   margin-left: 12px;
 }
 
+.search-title-label {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
 .app-container {
   display: flex;
   flex-direction: column;
