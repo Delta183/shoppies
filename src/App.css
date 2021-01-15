@@ -8,6 +8,15 @@
   font-size: 50px;
 }
 
+.app-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
