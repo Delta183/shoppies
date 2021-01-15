@@ -1,9 +1,9 @@
-import { SearchResult } from "./SearchResult";
+import { Movie } from "./Movie";
 
 interface IProps {
   key: string;
   imdbID: string;
-  result: SearchResult;
+  result: Movie;
   onResultClick: (imdbID: string) => void;
 }
 

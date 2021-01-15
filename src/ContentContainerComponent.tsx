@@ -1,8 +1,8 @@
-import { SearchResult } from "./SearchResult";
+import { Movie } from "./Movie";
 import SearchResultListComponent from "./SearchResultListComponent";
 
 interface IProps {
-  results: SearchResult[];
+  results: Movie[];
   query: string;
   onResultClick: (imdbID: string) => void;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SearchResult } from "./SearchResult";
+import { Movie } from "./Movie";
 import "./App.css";
 import TitleComponent from "./TitleComponent";
 import SearchContainerComponent from "./SearchContainerComponent";
@@ -7,7 +7,7 @@ import ContentContainerComponent from "./ContentContainerComponent";
 
 function App() {
   const [input, setInput] = useState("");
-  const [searchResults, setSearchResults] = useState(Array<SearchResult>());
+  const [searchResults, setSearchResults] = useState(Array<Movie>());
 
   const onSearchResultClick = async (key: string) => {
     console.log(`did click: ${key}`);
@@ -29,7 +29,7 @@ function App() {
     )
       .then((response) => response.json())
       .then((searchResponse) => {
-        const searchResponseResults: SearchResult[] = searchResponse["Search"];
+        const searchResponseResults: Movie[] = searchResponse["Search"];
         if (Array.isArray(searchResponseResults)) {
           setSearchResults(searchResponseResults);
         } else {
