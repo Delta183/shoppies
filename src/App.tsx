@@ -51,7 +51,7 @@ function App() {
     }
 
     fetch(
-      `http://www.omdbapi.com/?apikey=c923b464&s=${encodeURIComponent(
+      `https://www.omdbapi.com/?apikey=c923b464&s=${encodeURIComponent(
         query
       )}&type=movie`,
       {
