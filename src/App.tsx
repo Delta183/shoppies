@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Movie } from "./models/Movie";
 import "./App.css";
-import TitleComponent from "./TitleComponent";
-import SearchContainerComponent from "./SearchContainerComponent";
-import ContentContainerComponent from "./ContentContainerComponent";
+import TitleComponent from "./components/TitleComponent";
+import SearchContainerComponent from "./components/SearchContainerComponent";
+import ContentContainerComponent from "./components/ContentContainerComponent";
 
 function App() {
   const [input, setInput] = useState("");

@@ -1,4 +1,4 @@
-import { Movie } from "./models/Movie";
+import { Movie } from "../models/Movie";
 import NominationsListComponent from "./NominationsListComponent";
 import SearchResultListComponent from "./SearchResultListComponent";
 

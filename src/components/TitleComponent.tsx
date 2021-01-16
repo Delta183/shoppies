@@ -1,4 +1,4 @@
-import shopifyLogo from "./shopify_logo.png";
+import shopifyLogo from "../resources/shopify_logo.png";
 
 const TitleComponent = () => {
   return (
