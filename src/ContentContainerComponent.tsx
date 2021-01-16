@@ -1,5 +1,3 @@
-import { nodeModuleNameResolver } from "typescript";
-import { pathToFileURL } from "url";
 import { Movie } from "./Movie";
 import NominationsListComponent from "./NominationsListComponent";
 import SearchResultListComponent from "./SearchResultListComponent";

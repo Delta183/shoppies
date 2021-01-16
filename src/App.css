@@ -36,6 +36,10 @@
   padding-bottom: 6px;
 }
 
+.content-list-container {
+  width: 48%;
+}
+
 .nomination-container {
   display: flex;
   flex-direction: row;
@@ -44,10 +48,6 @@
   padding-right: 12px;
   padding-top: 6px;
   padding-bottom: 6px;
-}
-
-.content-list-container {
-  width: 48%;
 }
 
 .app-container {
@@ -102,20 +102,6 @@
   .title-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  min-height: 10vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: black;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {

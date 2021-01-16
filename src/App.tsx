@@ -10,6 +10,7 @@ function App() {
   const [searchResults, setSearchResults] = useState(Array<Movie>());
   const [nominations, setNominations] = useState(Array<Movie>());
 
+  // TODO: limit to 5 nominations and group commmon code
   const addNomination = async (imdbID: string) => {
     var foundIndex = -1;
     for (var i = 0; i < searchResults.length; i++) {
