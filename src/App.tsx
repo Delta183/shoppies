@@ -22,11 +22,16 @@ function App() {
     }
 
     if (foundIndex !== -1) {
-      // TODO: Remove if already existing in nominations
-      const foundResult = searchResults[foundIndex];
-      const existingNominations = [...nominations];
-      existingNominations.push(foundResult);
-      setNominations(existingNominations);
+      // Finally add a check for if there are 5 elements present 
+      if(nominations.length < 5){
+        const foundResult = searchResults[foundIndex];
+        const existingNominations = [...nominations];
+        existingNominations.push(foundResult);
+        setNominations(existingNominations);
+      }
+      else{
+        alert("Cannot add more nominations. Please remove one to add a new nomination.");
+      }
     }
   };
 
