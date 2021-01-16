@@ -1,4 +1,4 @@
-import { Movie } from "./Movie";
+import { Movie } from "./models/Movie";
 import SearchResultComponent from "./SearchResultComponent";
 
 function isNominated(nominations: Movie[], imdbID: string): boolean {

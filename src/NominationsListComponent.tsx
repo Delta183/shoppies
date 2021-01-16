@@ -1,4 +1,4 @@
-import { Movie } from "./Movie";
+import { Movie } from "./models/Movie";
 import NominationComponent from "./NominationComponent";
 
 interface IProps {
