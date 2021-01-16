@@ -10,7 +10,7 @@ function App() {
   const [searchResults, setSearchResults] = useState(Array<Movie>());
   const [nominations, setNominations] = useState(Array<Movie>());
 
-  const onSearchResultClick = async (imdbID: string) => {
+  const addNomination = async (imdbID: string) => {
     var foundIndex = -1;
     for (var i = 0; i < searchResults.length; i++) {
       const searchResult = searchResults[i];
@@ -28,6 +28,8 @@ function App() {
       setNominations(existingNominations);
     }
   };
+
+  const removeNomination = async (imdbID: string) => {};
 
   const onSearchBarTextChange = async (text: string) => {
     setInput(text);
@@ -67,7 +69,8 @@ function App() {
         results={searchResults}
         nominations={nominations}
         query={input}
-        onResultClick={onSearchResultClick}
+        onAddNominationClick={addNomination}
+        onRemoveNominationClick={removeNomination}
       />
     </div>
   );

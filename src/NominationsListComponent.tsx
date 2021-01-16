@@ -3,6 +3,7 @@ import NominationComponent from "./NominationComponent";
 
 interface IProps {
   nominations: Movie[];
+  onRemoveNominationClick: (imdbID: string) => void;
 }
 
 const NominationsListComponent = (props: IProps) => {
@@ -15,6 +16,7 @@ const NominationsListComponent = (props: IProps) => {
             key={nomination.imdbID}
             imdbID={nomination.imdbID}
             nomination={nomination}
+            onRemoveNominationClick={props.onRemoveNominationClick}
           />
         );
       })}

@@ -4,12 +4,12 @@ interface IProps {
   key: string;
   imdbID: string;
   result: Movie;
-  onResultClick: (imdbID: string) => void;
+  onAddNominationClick: (imdbID: string) => void;
 }
 
 const SearchResultComponent = (props: IProps) => {
   const onClick = () => {
-    props.onResultClick(props.imdbID);
+    props.onAddNominationClick(props.imdbID);
   };
   return (
     <div className={"search-result-container"}>

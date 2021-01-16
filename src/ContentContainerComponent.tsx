@@ -1,4 +1,5 @@
 import { nodeModuleNameResolver } from "typescript";
+import { pathToFileURL } from "url";
 import { Movie } from "./Movie";
 import NominationsListComponent from "./NominationsListComponent";
 import SearchResultListComponent from "./SearchResultListComponent";
@@ -7,7 +8,8 @@ interface IProps {
   results: Movie[];
   nominations: Movie[];
   query: string;
-  onResultClick: (imdbID: string) => void;
+  onAddNominationClick: (imdbID: string) => void;
+  onRemoveNominationClick: (imdbID: string) => void;
 }
 
 const ContentContainerComponent = (props: IProps) => {
@@ -16,9 +18,12 @@ const ContentContainerComponent = (props: IProps) => {
       <SearchResultListComponent
         results={props.results}
         query={props.query}
-        onResultClick={props.onResultClick}
+        onAddNominationClick={props.onAddNominationClick}
       />
-      <NominationsListComponent nominations={props.nominations} />
+      <NominationsListComponent
+        nominations={props.nominations}
+        onRemoveNominationClick={props.onRemoveNominationClick}
+      />
     </div>
   );
 };

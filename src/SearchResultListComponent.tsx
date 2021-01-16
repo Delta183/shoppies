@@ -4,7 +4,7 @@ import SearchResultComponent from "./SearchResultComponent";
 interface IProps {
   results: Movie[];
   query: string;
-  onResultClick: (imdbID: string) => void;
+  onAddNominationClick: (imdbID: string) => void;
 }
 
 const SearchResultListComponent = (props: IProps) => {
@@ -22,7 +22,7 @@ const SearchResultListComponent = (props: IProps) => {
             key={result.imdbID}
             imdbID={result.imdbID}
             result={result}
-            onResultClick={props.onResultClick}
+            onAddNominationClick={props.onAddNominationClick}
           />
         );
       })}
