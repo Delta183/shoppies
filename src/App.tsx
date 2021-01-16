@@ -29,7 +29,12 @@ function App() {
     }
   };
 
-  const removeNomination = async (imdbID: string) => {};
+  const removeNomination = async (imdbID: string) => {
+    const existingNominations = nominations.filter(
+      (nomination) => nomination.imdbID !== imdbID
+    );
+    setNominations(existingNominations);
+  };
 
   const onSearchBarTextChange = async (text: string) => {
     setInput(text);
