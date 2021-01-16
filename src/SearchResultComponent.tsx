@@ -4,6 +4,7 @@ interface IProps {
   key: string;
   imdbID: string;
   result: Movie;
+  isNominated: boolean;
   onAddNominationClick: (imdbID: string) => void;
 }
 
@@ -16,7 +17,9 @@ const SearchResultComponent = (props: IProps) => {
       <div>
         {props.result.Title} ({props.result.Year})
       </div>
-      <button onClick={onClick}>Nominate</button>
+      <button onClick={onClick} disabled={props.isNominated}>
+        Nominate
+      </button>
     </div>
   );
 };

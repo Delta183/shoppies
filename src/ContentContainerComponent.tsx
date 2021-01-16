@@ -18,6 +18,7 @@ const ContentContainerComponent = (props: IProps) => {
       <SearchResultListComponent
         results={props.results}
         query={props.query}
+        nominations={props.nominations}
         onAddNominationClick={props.onAddNominationClick}
       />
       <NominationsListComponent
