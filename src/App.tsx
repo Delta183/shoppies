@@ -63,11 +63,16 @@ function App() {
     )
       .then((response) => response.json())
       .then((searchResponse) => {
-        const searchResponseResults: Movie[] = searchResponse["Search"];
-        if (Array.isArray(searchResponseResults)) {
-          setSearchResults(searchResponseResults);
+        if (searchResponse["Error"] === "Too many results.") {
+          // TODO: Handle too many results error.
+          console.log("Too many movies to display.");
         } else {
-          setSearchResults([]);
+          const searchResponseResults: Movie[] = searchResponse["Search"];
+          if (Array.isArray(searchResponseResults)) {
+            setSearchResults(searchResponseResults);
+          } else {
+            setSearchResults([]);
+          }
         }
       })
       .catch((error) => {
