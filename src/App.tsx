@@ -4,6 +4,7 @@ import "./App.css";
 import TitleComponent from "./components/TitleComponent";
 import SearchContainerComponent from "./components/SearchContainerComponent";
 import ContentContainerComponent from "./components/ContentContainerComponent";
+import debounce from "./helpers/debounce";
 
 function App() {
   const [input, setInput] = useState("");
@@ -43,12 +44,10 @@ function App() {
     setNominations(existingNominations);
   };
 
-  const onSearchBarTextChange = async (text: string) => {
-    setInput(text);
-
+  const performSearch = async (query: string) => {
     fetch(
       `http://www.omdbapi.com/?apikey=c923b464&s=${encodeURIComponent(
-        text
+        query
       )}&type=movie`,
       {
         method: "GET",
@@ -69,6 +68,14 @@ function App() {
       .catch((error) => {
         console.log(`Something went wrong: ${error}`);
       });
+  };
+
+  const onSearchBarTextChange = async (text: string) => {
+    setInput(text);
+    const debouncedFunction = debounce(function () {
+      performSearch(text);
+    }, 500);
+    debouncedFunction();
   };
   return (
     <div className="app-container">
