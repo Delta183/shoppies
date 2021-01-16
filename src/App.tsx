@@ -45,6 +45,11 @@ function App() {
   };
 
   const performSearch = async (query: string) => {
+    if (query.length === 0) {
+      setSearchResults([]);
+      return;
+    }
+
     fetch(
       `http://www.omdbapi.com/?apikey=c923b464&s=${encodeURIComponent(
         query
