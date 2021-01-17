@@ -13,7 +13,11 @@ const NominationComponent = (props: IProps) => {
   };
   return (
     <div className={"movie-item-container"}>
-      <img className={"movie-item-image"} src={props.nomination.Poster} />
+      <img
+        className={"movie-item-image"}
+        src={props.nomination.Poster}
+        alt={`Movie poster for ${props.nomination.Title}`}
+      />
       <div className={"movie-item-title"}>
         {props.nomination.Title} ({props.nomination.Year})
       </div>

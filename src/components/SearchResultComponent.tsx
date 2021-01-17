@@ -14,7 +14,11 @@ const SearchResultComponent = (props: IProps) => {
   };
   return (
     <div className={"movie-item-container"}>
-      <img className={"movie-item-image"} src={props.result.Poster} />
+      <img
+        className={"movie-item-image"}
+        src={props.result.Poster}
+        alt={`Movie poster for ${props.result.Title}`}
+      />
       <div className={"movie-item-title"}>
         {props.result.Title} ({props.result.Year})
       </div>
