@@ -53,3 +53,17 @@ Check out the `package.json` for more information on this script.
 Heroku makes it really easy to deploy Create React Apps and I followed the instructions from this [wiki](https://blog.heroku.com/deploying-react-with-zero-configuration).
 
 Be sure to set the Configuration Variable for your API key in order for search queries to perform sucessfully.
+
+## Demos
+
+### Desktop
+
+<img src="./readme_resources/desktop.png" width=50% height=50%>
+
+### Mobile
+
+| Portrait | Landscape |
+|:--------:|:--------:|
+| <img src="./readme_resources/mobile_portrait.jpeg" width=50% height=50%> | <img src="./readme_resources/mobile_landscape.jpeg" width=50% height=50%> |
+
+Most importantly, I built for accessibility in mind so please watch the video in the readme_resources folder.
