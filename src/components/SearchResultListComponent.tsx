@@ -20,7 +20,7 @@ const isTooManyResultsError = (error: Error | null): boolean => {
 
 const shouldShowNoResultsPlaceholder = (props: IProps): boolean => {
   return (
-    props.searchResultError === null &&
+    !isTooManyResultsError(props.searchResultError) &&
     props.results.length === 0 &&
     props.query.length > 0
   );
