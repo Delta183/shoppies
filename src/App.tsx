@@ -10,11 +10,15 @@ import findMovieByImdbId from "./helpers/movie_array_helpers";
 import useLocalStorage from "./helpers/local_storage_hook";
 import AttributionComponent from "./components/AttributionComponent";
 
+const DEBOUNCE_DURATION = 500;
+const MAX_NOMINATION_LENGTH = 5;
+const LOCAL_STORAGE_NOMINATIONS_KEY = "nominations";
+
 function App() {
   const [input, setInput] = useState("");
   const [searchResults, setSearchResults] = useState(Array<Movie>());
   const [nominations, setNominations] = useLocalStorage(
-    "nominations",
+    LOCAL_STORAGE_NOMINATIONS_KEY,
     Array<Movie>()
   );
   const [searchResultError, setSearchResultError] = useState<Error | null>(
@@ -22,7 +26,7 @@ function App() {
   );
 
   const addNomination = async (imdbID: string) => {
-    if (nominations.length >= 5) {
+    if (nominations.length >= MAX_NOMINATION_LENGTH) {
       alert(
         "Cannot add more nominations. Please remove one to add a new nomination."
       );
@@ -60,7 +64,7 @@ function App() {
     setInput(text);
     const debouncedFunction = debounce(function () {
       performSearch(text);
-    }, 500);
+    }, DEBOUNCE_DURATION);
     debouncedFunction();
   };
 

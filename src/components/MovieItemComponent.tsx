@@ -1,6 +1,8 @@
 import { Movie } from "../models/Movie";
 import placeholderPoster from "../resources/placeholder_poster.png";
 
+const INVALID_MOVIE_POSTER_TEXT = "N/A";
+
 interface IProps {
   imdbID: string;
   movie: Movie;
@@ -16,7 +18,7 @@ const MovieItemComponent = (props: IProps) => {
   const onClick = () => {
     props.buttonConfig.onClick(props.imdbID);
   };
-  const hasPoster = props.movie.Poster !== "N/A";
+  const hasPoster = props.movie.Poster !== INVALID_MOVIE_POSTER_TEXT;
   return (
     <div className={"movie-item-container"}>
       <img
