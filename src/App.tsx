@@ -6,6 +6,7 @@ import SearchContainerComponent from "./components/SearchContainerComponent";
 import ContentContainerComponent from "./components/ContentContainerComponent";
 import debounce from "./helpers/debounce";
 import searchMoviesWithQuery from "./helpers/omdb_api";
+import findMovieByImdbId from "./helpers/movie_array_helpers";
 
 function App() {
   const [input, setInput] = useState("");
@@ -19,20 +20,12 @@ function App() {
       );
       return;
     }
-    var foundIndex = -1;
-    for (var i = 0; i < searchResults.length; i++) {
-      const searchResult = searchResults[i];
-      if (searchResult.imdbID === imdbID) {
-        foundIndex = i;
-        break;
-      }
-    }
+    const movie = findMovieByImdbId(imdbID, searchResults);
 
-    if (foundIndex !== -1) {
-      const foundResult = searchResults[foundIndex];
+    if (movie !== null) {
       setNominations((previousNominations) => {
         const existingNominations = [...previousNominations];
-        existingNominations.push(foundResult);
+        existingNominations.push(movie);
         return existingNominations;
       });
     }

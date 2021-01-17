@@ -1,17 +1,6 @@
 import { Movie } from "../models/Movie";
 import SearchResultComponent from "./SearchResultComponent";
-
-function isNominated(nominations: Movie[], imdbID: string): boolean {
-  var foundIndex = -1;
-  for (var i = 0; i < nominations.length; i++) {
-    const nomination = nominations[i];
-    if (nomination.imdbID === imdbID) {
-      foundIndex = i;
-      break;
-    }
-  }
-  return foundIndex !== -1;
-}
+import findMovieByImdbId from "../helpers/movie_array_helpers";
 
 interface IProps {
   results: Movie[];
@@ -35,7 +24,9 @@ const SearchResultListComponent = (props: IProps) => {
             key={result.imdbID}
             imdbID={result.imdbID}
             result={result}
-            isNominated={isNominated(props.nominations, result.imdbID)}
+            isNominated={
+              findMovieByImdbId(result.imdbID, props.nominations) !== null
+            }
             onAddNominationClick={props.onAddNominationClick}
           />
         );
