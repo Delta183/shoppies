@@ -19,7 +19,7 @@ const NominationComponent = (props: IProps) => {
         alt={`Movie poster for ${props.nomination.Title}`}
       />
       <div className={"movie-item-title"}>
-        {props.nomination.Title} ({props.nomination.Year})
+        {`${props.nomination.Title} (${props.nomination.Year})`}
       </div>
       <button className={"base-button remove-button"} onClick={onClick}>
         Remove

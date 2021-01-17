@@ -20,7 +20,7 @@ const SearchResultComponent = (props: IProps) => {
         alt={`Movie poster for ${props.result.Title}`}
       />
       <div className={"movie-item-title"}>
-        {props.result.Title} ({props.result.Year})
+        {`${props.result.Title} (${props.result.Year})`}
       </div>
       <button
         className={"base-button nominate-button"}
