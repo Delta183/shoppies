@@ -18,6 +18,14 @@ const isTooManyResultsError = (error: Error | null): boolean => {
   return errorMessage === "Too many results.";
 };
 
+const shouldShowNoResultsPlaceholder = (props: IProps): boolean => {
+  return (
+    props.searchResultError === null &&
+    props.results.length === 0 &&
+    props.query.length > 0
+  );
+};
+
 const SearchResultListComponent = (props: IProps) => {
   return (
     <div className={"content-list-container"}>
@@ -31,7 +39,7 @@ const SearchResultListComponent = (props: IProps) => {
           Too many results were returned, please make your query more specific.
         </div>
       ) : null}
-      {props.results.length === 0 && props.query.length > 0 ? (
+      {shouldShowNoResultsPlaceholder(props) ? (
         <div className={"search-results-placeholder-label"}>
           No results found. Please try another query.
         </div>
