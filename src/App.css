@@ -44,6 +44,16 @@
   font-weight: 500;
 }
 
+.too-many-results-label {
+  text-align: center;
+  margin-right: 12px;
+  font-size: 13pt;
+  font-style: italic;
+  font-weight: 500;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
 .movie-item-image {
   height: 10vmax;
   margin-right: 12px;

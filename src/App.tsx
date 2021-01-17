@@ -16,6 +16,7 @@ function App() {
     "nominations",
     Array<Movie>()
   );
+  const [hasTooManyResults, setHasTooManyResults] = useState(false);
 
   const addNomination = async (imdbID: string) => {
     if (nominations.length >= 5) {
@@ -45,9 +46,28 @@ function App() {
     });
   };
 
+  const handleErrorIfNeeded = async (error: Error | null) => {
+    setHasTooManyResults(false);
+
+    if (error === null) {
+      return;
+    }
+
+    const errorMessage = error.message;
+
+    if (errorMessage === "Too many results.") {
+      setHasTooManyResults(true);
+    } else if (errorMessage !== "Movie not found!") {
+      alert(
+        `Oops, something went wrong. Please try your query again. Error Reason: ${errorMessage}`
+      );
+    }
+  };
+
   const performSearch = async (query: string) => {
     searchMoviesWithQuery(query, (results, error) => {
       setSearchResults(results);
+      handleErrorIfNeeded(error);
     });
   };
 
@@ -67,6 +87,7 @@ function App() {
         onChange={onSearchBarTextChange}
       />
       <ContentContainerComponent
+        hasTooManyResults={hasTooManyResults}
         results={searchResults}
         nominations={nominations}
         query={input}

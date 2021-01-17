@@ -6,6 +6,7 @@ interface IProps {
   results: Movie[];
   query: string;
   nominations: Movie[];
+  hasTooManyResults: boolean;
   onAddNominationClick: (imdbID: string) => void;
 }
 
@@ -17,20 +18,26 @@ const SearchResultListComponent = (props: IProps) => {
           ? "Results"
           : `Results for "${props.query}"`}
       </div>
-      {props.results.map((result) => {
-        // This part calls on the SearchResultComponent which are all the titles
-        return (
-          <SearchResultComponent
-            key={result.imdbID}
-            imdbID={result.imdbID}
-            result={result}
-            isNominated={
-              findMovieByImdbId(result.imdbID, props.nominations) !== null
-            }
-            onAddNominationClick={props.onAddNominationClick}
-          />
-        );
-      })}
+      {props.hasTooManyResults ? (
+        <div className={"too-many-results-label"}>
+          Too many results were returned, please make your query more specific.
+        </div>
+      ) : (
+        props.results.map((result) => {
+          // This part calls on the SearchResultComponent which are all the titles
+          return (
+            <SearchResultComponent
+              key={result.imdbID}
+              imdbID={result.imdbID}
+              result={result}
+              isNominated={
+                findMovieByImdbId(result.imdbID, props.nominations) !== null
+              }
+              onAddNominationClick={props.onAddNominationClick}
+            />
+          );
+        })
+      )}
     </div>
   );
 };
