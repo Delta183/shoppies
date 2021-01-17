@@ -14,6 +14,12 @@ function App() {
 
   // TODO: limit to 5 nominations and group commmon code
   const addNomination = async (imdbID: string) => {
+    if (nominations.length >= 5) {
+      alert(
+        "Cannot add more nominations. Please remove one to add a new nomination."
+      );
+      return;
+    }
     var foundIndex = -1;
     for (var i = 0; i < searchResults.length; i++) {
       const searchResult = searchResults[i];
@@ -25,16 +31,10 @@ function App() {
 
     if (foundIndex !== -1) {
       // Finally add a check for if there are 5 elements present
-      if (nominations.length < 5) {
-        const foundResult = searchResults[foundIndex];
-        const existingNominations = [...nominations];
-        existingNominations.push(foundResult);
-        setNominations(existingNominations);
-      } else {
-        alert(
-          "Cannot add more nominations. Please remove one to add a new nomination."
-        );
-      }
+      const foundResult = searchResults[foundIndex];
+      const existingNominations = [...nominations];
+      existingNominations.push(foundResult);
+      setNominations(existingNominations);
     }
   };
 
