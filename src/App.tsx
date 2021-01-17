@@ -7,11 +7,15 @@ import ContentContainerComponent from "./components/ContentContainerComponent";
 import debounce from "./helpers/debounce";
 import searchMoviesWithQuery from "./helpers/omdb_api";
 import findMovieByImdbId from "./helpers/movie_array_helpers";
+import useLocalStorage from "./helpers/local_storage_hook";
 
 function App() {
   const [input, setInput] = useState("");
   const [searchResults, setSearchResults] = useState(Array<Movie>());
-  const [nominations, setNominations] = useState(Array<Movie>());
+  const [nominations, setNominations] = useLocalStorage(
+    "nominations",
+    Array<Movie>()
+  );
 
   const addNomination = async (imdbID: string) => {
     if (nominations.length >= 5) {
@@ -24,7 +28,7 @@ function App() {
     const movie = findMovieByImdbId(imdbID, searchResults);
 
     if (movie !== null) {
-      setNominations((previousNominations) => {
+      setNominations((previousNominations: Movie[]) => {
         const existingNominations = [...previousNominations];
         existingNominations.push(movie);
         return existingNominations;
@@ -33,9 +37,9 @@ function App() {
   };
 
   const removeNomination = async (imdbID: string) => {
-    setNominations((previousNominations) => {
+    setNominations((previousNominations: Movie[]) => {
       const existingNominations = previousNominations.filter(
-        (nomination) => nomination.imdbID !== imdbID
+        (nomination: Movie) => nomination.imdbID !== imdbID
       );
       return existingNominations;
     });
