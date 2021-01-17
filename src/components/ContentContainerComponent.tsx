@@ -6,7 +6,7 @@ interface IProps {
   results: Movie[];
   nominations: Movie[];
   query: string;
-  hasTooManyResults: boolean;
+  searchResultError: Error | null;
   onAddNominationClick: (imdbID: string) => void;
   onRemoveNominationClick: (imdbID: string) => void;
 }
@@ -15,7 +15,7 @@ const ContentContainerComponent = (props: IProps) => {
   return (
     <div className={"content-container"}>
       <SearchResultListComponent
-        hasTooManyResults={props.hasTooManyResults}
+        searchResultError={props.searchResultError}
         results={props.results}
         query={props.query}
         nominations={props.nominations}

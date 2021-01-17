@@ -6,9 +6,17 @@ interface IProps {
   results: Movie[];
   query: string;
   nominations: Movie[];
-  hasTooManyResults: boolean;
+  searchResultError: Error | null;
   onAddNominationClick: (imdbID: string) => void;
 }
+
+const isTooManyResultsError = (error: Error | null): boolean => {
+  if (error === null) {
+    return false;
+  }
+  const errorMessage = error.message;
+  return errorMessage === "Too many results.";
+};
 
 const SearchResultListComponent = (props: IProps) => {
   return (
@@ -18,7 +26,7 @@ const SearchResultListComponent = (props: IProps) => {
           ? "Results"
           : `Results for "${props.query}"`}
       </div>
-      {props.hasTooManyResults ? (
+      {isTooManyResultsError(props.searchResultError) ? (
         <div className={"too-many-results-label"}>
           Too many results were returned, please make your query more specific.
         </div>
