@@ -48,6 +48,12 @@
   border-radius: 8px;
 }
 
+.movie-item-title {
+  margin-right: 12px;
+  font-style: italic;
+  font-weight: 500;
+}
+
 .nominate-button {
   padding-left: 12px;
   padding-right: 12px;

@@ -14,7 +14,7 @@ const SearchResultComponent = (props: IProps) => {
   };
   return (
     <div className={"movie-item-container"}>
-      <div>
+      <div className={"movie-item-title"}>
         {props.result.Title} ({props.result.Year})
       </div>
       <button
