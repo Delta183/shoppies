@@ -1,3 +1,4 @@
+/* Content (Container for search results and nominations)  */
 .content-container {
   display: flex;
   flex-direction: row;
@@ -21,6 +22,7 @@
   border-radius: 8px;
 }
 
+/* Common movie components (Use for rendering and search of nominations */
 .movie-item-container {
   display: flex;
   flex-direction: row;
@@ -44,16 +46,6 @@
   font-weight: 500;
 }
 
-.search-results-placeholder-label {
-  text-align: center;
-  margin-right: 12px;
-  font-size: 13pt;
-  font-style: italic;
-  font-weight: 500;
-  margin-top: 12px;
-  margin-bottom: 12px;
-}
-
 .movie-item-image {
   height: 9.5vmax;
   margin-right: 12px;
@@ -64,14 +56,15 @@
   margin-right: 12px;
 }
 
-.base-button {
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  border-radius: 8px;
-  font-size: 11pt;
-  font-weight: bold;
+/* Search results */
+.search-results-placeholder-label {
+  text-align: center;
+  margin-right: 12px;
+  font-size: 13pt;
+  font-style: italic;
+  font-weight: 500;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 .nominate-button {
@@ -84,20 +77,7 @@
   color: black;
 }
 
-.remove-button {
-  background-color: #de3618;
-  color: white;
-}
-
-.app-container {
-  display: flex;
-  flex-direction: column;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
+/* Search container */
 .search-container {
   display: flex;
   flex-direction: column;
@@ -127,19 +107,39 @@
   margin-bottom: 12px;
 }
 
+/* Shared components across app */
+
+.base-button {
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 8px;
+  font-size: 11pt;
+  font-weight: bold;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* Nominations */
+.remove-button {
+  background-color: #de3618;
+  color: white;
+}
+
+/* Title Component */
 .title-container {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-}
-
-.attribution-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 12px;
 }
 
 .title-logo-container {
@@ -161,6 +161,16 @@
   pointer-events: none;
 }
 
+/* Attribution  */
+.attribution-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 12px;
+}
+
+/* Media queries */
 @media (prefers-reduced-motion: no-preference) {
   .title-logo {
     animation: App-logo-spin infinite 30s linear;
