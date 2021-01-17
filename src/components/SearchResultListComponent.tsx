@@ -27,25 +27,29 @@ const SearchResultListComponent = (props: IProps) => {
           : `Results for "${props.query}"`}
       </div>
       {isTooManyResultsError(props.searchResultError) ? (
-        <div className={"too-many-results-label"}>
+        <div className={"search-results-placeholder-label"}>
           Too many results were returned, please make your query more specific.
         </div>
-      ) : (
-        props.results.map((result) => {
-          // This part calls on the SearchResultComponent which are all the titles
-          return (
-            <SearchResultComponent
-              key={result.imdbID}
-              imdbID={result.imdbID}
-              result={result}
-              isNominated={
-                findMovieByImdbId(result.imdbID, props.nominations) !== null
-              }
-              onAddNominationClick={props.onAddNominationClick}
-            />
-          );
-        })
-      )}
+      ) : null}
+      {props.results.length === 0 && props.query.length > 0 ? (
+        <div className={"search-results-placeholder-label"}>
+          No results found. Please try another query.
+        </div>
+      ) : null}
+      {props.results.map((result) => {
+        // This part calls on the SearchResultComponent which are all the titles
+        return (
+          <SearchResultComponent
+            key={result.imdbID}
+            imdbID={result.imdbID}
+            result={result}
+            isNominated={
+              findMovieByImdbId(result.imdbID, props.nominations) !== null
+            }
+            onAddNominationClick={props.onAddNominationClick}
+          />
+        );
+      })}
     </div>
   );
 };
