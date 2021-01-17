@@ -14,6 +14,19 @@ interface IProps {
   };
 }
 
+const classNameForPosterStatus = (hasPoster: boolean): string => {
+  return hasPoster ? "movie-item-image" : "movie-item-placeholder-image";
+};
+
+const altTextForPosterStatus = (hasPoster: boolean, movie: Movie): string => {
+  const movieDisplayTitle = `${movie.Title} (${movie.Year})`;
+  if (hasPoster) {
+    return `Movie poster for ${movieDisplayTitle}`;
+  } else {
+    return `Movie poster not found, showing placeholder for ${movieDisplayTitle}`;
+  }
+};
+
 const MovieItemComponent = (props: IProps) => {
   const onClick = () => {
     props.buttonConfig.onClick(props.imdbID);
@@ -22,11 +35,9 @@ const MovieItemComponent = (props: IProps) => {
   return (
     <div className={"movie-item-container"}>
       <img
-        className={
-          hasPoster ? "movie-item-image" : "movie-item-placeholder-image"
-        }
+        className={classNameForPosterStatus(hasPoster)}
         src={hasPoster ? props.movie.Poster : placeholderPoster}
-        alt={`Movie poster for ${props.movie.Title} (${props.movie.Year})`}
+        alt={altTextForPosterStatus(hasPoster, props.movie)}
       />
       <div className={"movie-item-title"}>
         {`${props.movie.Title} (${props.movie.Year})`}
