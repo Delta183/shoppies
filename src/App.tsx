@@ -5,6 +5,7 @@ import TitleComponent from "./components/TitleComponent";
 import SearchContainerComponent from "./components/SearchContainerComponent";
 import ContentContainerComponent from "./components/ContentContainerComponent";
 import debounce from "./helpers/debounce";
+import searchMoviesWithQuery from "./helpers/omdb_api";
 
 function App() {
   const [input, setInput] = useState("");
@@ -45,39 +46,9 @@ function App() {
   };
 
   const performSearch = async (query: string) => {
-    if (query.length === 0) {
-      setSearchResults([]);
-      return;
-    }
-
-    fetch(
-      `https://www.omdbapi.com/?apikey=c923b464&s=${encodeURIComponent(
-        query
-      )}&type=movie`,
-      {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((searchResponse) => {
-        if (searchResponse["Error"] === "Too many results.") {
-          // TODO: Handle too many results error.
-          console.log("Too many movies to display.");
-        } else {
-          const searchResponseResults: Movie[] = searchResponse["Search"];
-          if (Array.isArray(searchResponseResults)) {
-            setSearchResults(searchResponseResults);
-          } else {
-            setSearchResults([]);
-          }
-        }
-      })
-      .catch((error) => {
-        console.log(`Something went wrong: ${error}`);
-      });
+    searchMoviesWithQuery(query, (results, error) => {
+      setSearchResults(results);
+    });
   };
 
   const onSearchBarTextChange = async (text: string) => {
