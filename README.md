@@ -1,12 +1,34 @@
-# Getting Started with Create React App
+# Shoppies
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Background
 
-## Available Scripts
+This is my coding challenge project for the [Shopify 2021 internship application](https://jobs.smartrecruiters.com/ni/Shopify/ee14b4f1-62ec-4a47-850b-2311c57f855b-front-end-developer-intern-remote-summer-2021).
 
-In the project directory, you can run:
+## Prerequisites
 
-### `npm start`
+**OMDB API**
+
+You'll first need to retrieve an API key via OMDB API [here](http://www.omdbapi.com/apikey.aspx).
+
+After you've activated the API key, you'll need to configure the environment variable before running this app.
+
+```
+$ export REACT_APP_OMDB_API_KEY=YOUR_COOL_API_KEY_HERE;
+```
+
+NOTE: This must be initialized before running `npm start` otherwise the search will fail.
+
+## Setup
+
+NOTE: This assumes you have installed a Node version >= 10 as per the [Create React App docs](https://create-react-app.dev/docs/getting-started/).
+
+Since we're using Create React App for this, setting it up after initializing the API requires the following command:
+
+```
+$ npm start
+```
+
+which as per the Create React docs does the following:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -14,33 +36,20 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+## Formatting
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I chose to use [Prettier](https://prettier.io/) for automatically formatting my code to have one less thing to worry about.
 
-### `npm run build`
+You can run this after any change via the following command:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+$ npm run prettier
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Check out the `package.json` for more information on this script.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Deployment
 
-### `npm run eject`
+Heroku makes it really easy to deploy Create React Apps and I followed the instructions from this [wiki](https://blog.heroku.com/deploying-react-with-zero-configuration).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Be sure to set the Configuration Variable for your API key in order for search queries to perform sucessfully.
