@@ -17,9 +17,11 @@ const SearchResultComponent = (props: IProps) => {
       <div>
         {props.result.Title} ({props.result.Year})
       </div>
-      <button onClick={onClick} disabled={props.isNominated}>
-        Nominate
-      </button>
+      <div className={"movie-button"}>
+        <button onClick={onClick} disabled={props.isNominated}>
+          Nominate
+        </button>
+      </div>
     </div>
   );
 };

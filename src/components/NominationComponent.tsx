@@ -16,7 +16,9 @@ const NominationComponent = (props: IProps) => {
       <div>
         {props.nomination.Title} ({props.nomination.Year})
       </div>
-      <button onClick={onClick}>Remove</button>
+      <div className={"movie-button"}>
+        <button onClick={onClick}>Remove</button>
+      </div>
     </div>
   );
 };
