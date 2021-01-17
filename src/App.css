@@ -61,10 +61,13 @@
   align-items: stretch;
   margin-top: 24px;
   margin-bottom: 24px;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding-top: 36px;
+  padding-bottom: 36px;
   padding-left: 24px;
   padding-right: 24px;
+  background-color: #bbe5b3;
+  border: 2px solid black;
+  border-radius: 8px;
 }
 
 .search-bar {
@@ -100,7 +103,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .title-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 30s linear;
   }
 }
 
