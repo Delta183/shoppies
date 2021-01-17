@@ -12,7 +12,6 @@ function App() {
   const [searchResults, setSearchResults] = useState(Array<Movie>());
   const [nominations, setNominations] = useState(Array<Movie>());
 
-  // TODO: limit to 5 nominations and group commmon code
   const addNomination = async (imdbID: string) => {
     if (nominations.length >= 5) {
       alert(
@@ -40,10 +39,12 @@ function App() {
   };
 
   const removeNomination = async (imdbID: string) => {
-    const existingNominations = nominations.filter(
-      (nomination) => nomination.imdbID !== imdbID
-    );
-    setNominations(existingNominations);
+    setNominations((previousNominations) => {
+      const existingNominations = previousNominations.filter(
+        (nomination) => nomination.imdbID !== imdbID
+      );
+      return existingNominations;
+    });
   };
 
   const performSearch = async (query: string) => {
