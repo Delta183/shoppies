@@ -30,11 +30,12 @@ function App() {
     }
 
     if (foundIndex !== -1) {
-      // Finally add a check for if there are 5 elements present
       const foundResult = searchResults[foundIndex];
-      const existingNominations = [...nominations];
-      existingNominations.push(foundResult);
-      setNominations(existingNominations);
+      setNominations((previousNominations) => {
+        const existingNominations = [...previousNominations];
+        existingNominations.push(foundResult);
+        return existingNominations;
+      });
     }
   };
 
