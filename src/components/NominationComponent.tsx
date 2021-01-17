@@ -16,7 +16,7 @@ const NominationComponent = (props: IProps) => {
       <img
         className={"movie-item-image"}
         src={props.nomination.Poster}
-        alt={`Movie poster for ${props.nomination.Title}`}
+        alt={`Movie poster for ${props.nomination.Title} (${props.nomination.Year})`}
       />
       <div className={"movie-item-title"}>
         {`${props.nomination.Title} (${props.nomination.Year})`}
