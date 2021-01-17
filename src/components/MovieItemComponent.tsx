@@ -1,4 +1,5 @@
 import { Movie } from "../models/Movie";
+import placeholderPoster from "../resources/placeholder_poster.png";
 
 interface IProps {
   imdbID: string;
@@ -15,11 +16,14 @@ const MovieItemComponent = (props: IProps) => {
   const onClick = () => {
     props.buttonConfig.onClick(props.imdbID);
   };
+  const hasPoster = props.movie.Poster !== "N/A";
   return (
     <div className={"movie-item-container"}>
       <img
-        className={"movie-item-image"}
-        src={props.movie.Poster}
+        className={
+          hasPoster ? "movie-item-image" : "movie-item-placeholder-image"
+        }
+        src={hasPoster ? props.movie.Poster : placeholderPoster}
         alt={`Movie poster for ${props.movie.Title} (${props.movie.Year})`}
       />
       <div className={"movie-item-title"}>

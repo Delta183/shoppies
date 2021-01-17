@@ -55,7 +55,12 @@
 }
 
 .movie-item-image {
-  height: 10vmax;
+  height: 9.5vmax;
+  margin-right: 12px;
+}
+
+.movie-item-placeholder-image {
+  height: 9vmax;
   margin-right: 12px;
 }
 
