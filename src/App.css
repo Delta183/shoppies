@@ -37,7 +37,7 @@
 }
 
 .movie-item-title {
-  text-align: start;
+  text-align: center;
   margin-right: 12px;
   font-size: 13pt;
   font-style: italic;
@@ -171,5 +171,9 @@
   .app-container {
     padding-left: 12px;
     padding-right: 12px;
+  }
+
+  .movie-item-title {
+    text-align: start;
   }
 }
