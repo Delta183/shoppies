@@ -20,6 +20,7 @@ function App() {
       );
       return;
     }
+
     const movie = findMovieByImdbId(imdbID, searchResults);
 
     if (movie !== null) {
@@ -53,6 +54,7 @@ function App() {
     }, 500);
     debouncedFunction();
   };
+
   return (
     <div className="app-container">
       <TitleComponent />
