@@ -1,4 +1,5 @@
 import { Movie } from "../models/Movie";
+import MovieItemComponent from "./MovieItemComponent";
 
 interface IProps {
   key: string;
@@ -9,27 +10,17 @@ interface IProps {
 }
 
 const SearchResultComponent = (props: IProps) => {
-  const onClick = () => {
-    props.onAddNominationClick(props.imdbID);
-  };
   return (
-    <div className={"movie-item-container"}>
-      <img
-        className={"movie-item-image"}
-        src={props.result.Poster}
-        alt={`Movie poster for ${props.result.Title} (${props.result.Year})`}
-      />
-      <div className={"movie-item-title"}>
-        {`${props.result.Title} (${props.result.Year})`}
-      </div>
-      <button
-        className={"base-button nominate-button"}
-        onClick={onClick}
-        disabled={props.isNominated}
-      >
-        Nominate
-      </button>
-    </div>
+    <MovieItemComponent
+      imdbID={props.imdbID}
+      movie={props.result}
+      buttonConfig={{
+        disabled: props.isNominated,
+        className: "base-button nominate-button",
+        title: "Nominate",
+        onClick: props.onAddNominationClick,
+      }}
+    />
   );
 };
 

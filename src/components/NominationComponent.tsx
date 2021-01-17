@@ -1,4 +1,5 @@
 import { Movie } from "../models/Movie";
+import MovieItemComponent from "./MovieItemComponent";
 
 interface IProps {
   key: string;
@@ -8,23 +9,17 @@ interface IProps {
 }
 
 const NominationComponent = (props: IProps) => {
-  const onClick = () => {
-    props.onRemoveNominationClick(props.imdbID);
-  };
   return (
-    <div className={"movie-item-container"}>
-      <img
-        className={"movie-item-image"}
-        src={props.nomination.Poster}
-        alt={`Movie poster for ${props.nomination.Title} (${props.nomination.Year})`}
-      />
-      <div className={"movie-item-title"}>
-        {`${props.nomination.Title} (${props.nomination.Year})`}
-      </div>
-      <button className={"base-button remove-button"} onClick={onClick}>
-        Remove
-      </button>
-    </div>
+    <MovieItemComponent
+      imdbID={props.imdbID}
+      movie={props.nomination}
+      buttonConfig={{
+        disabled: false,
+        className: "base-button remove-button",
+        title: "Remove",
+        onClick: props.onRemoveNominationClick,
+      }}
+    />
   );
 };
 
