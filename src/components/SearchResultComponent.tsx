@@ -14,11 +14,12 @@ const SearchResultComponent = (props: IProps) => {
   };
   return (
     <div className={"movie-item-container"}>
+      <img className={"movie-item-image"} src={props.result.Poster} />
       <div className={"movie-item-title"}>
         {props.result.Title} ({props.result.Year})
       </div>
       <button
-        className={"nominate-button"}
+        className={"base-button nominate-button"}
         onClick={onClick}
         disabled={props.isNominated}
       >

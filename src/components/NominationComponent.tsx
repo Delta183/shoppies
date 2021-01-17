@@ -13,10 +13,11 @@ const NominationComponent = (props: IProps) => {
   };
   return (
     <div className={"movie-item-container"}>
+      <img className={"movie-item-image"} src={props.nomination.Poster} />
       <div className={"movie-item-title"}>
         {props.nomination.Title} ({props.nomination.Year})
       </div>
-      <button className={"remove-button"} onClick={onClick}>
+      <button className={"base-button remove-button"} onClick={onClick}>
         Remove
       </button>
     </div>

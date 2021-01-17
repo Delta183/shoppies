@@ -49,17 +49,29 @@
 }
 
 .movie-item-title {
+  text-align: start;
   margin-right: 12px;
+  font-size: 13pt;
   font-style: italic;
   font-weight: 500;
 }
 
-.nominate-button {
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-top: 6px;
-  padding-bottom: 6px;
+.movie-item-image {
+  height: 10vmax;
+  margin-right: 12px;
+}
+
+.base-button {
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   border-radius: 8px;
+  font-size: 11pt;
+  font-weight: bold;
+}
+
+.nominate-button {
   background-color: #006fbb;
   color: white;
 }
@@ -72,12 +84,6 @@
 .remove-button {
   background-color: #de3618;
   color: white;
-  font-weight: bold;
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  border-radius: 8px;
 }
 
 .app-container {
@@ -109,6 +115,7 @@
   background: #f2f1f9;
   border: 2px solid black;
   border-radius: 4px;
+  font-size: large;
   padding: 0.5rem;
 }
 
@@ -135,6 +142,7 @@
 .title-label {
   font-size: 50px;
   margin-left: 12px;
+  font-weight: bold;
 }
 
 .title-logo {
