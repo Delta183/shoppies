@@ -1,5 +1,7 @@
 import { Movie } from "../models/Movie";
 
+const OMDB_API_KEY = process.env.REACT_APP_OMDB_API_KEY || "";
+
 const searchMoviesWithQuery = async (
   query: string,
   callback: (results: Movie[], error: Error | null) => void
@@ -10,7 +12,7 @@ const searchMoviesWithQuery = async (
   }
 
   fetch(
-    `https://www.omdbapi.com/?apikey=c923b464&s=${encodeURIComponent(
+    `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${encodeURIComponent(
       query
     )}&type=movie`,
     {
