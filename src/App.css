@@ -27,35 +27,51 @@
   padding-bottom: 12px;
   margin-bottom: 6px;
   font-size: 20px;
-  background-color: #bbe5b3;
+  background-color: #108043;
+  color: white;
   border: 2px solid black;
   border-radius: 8px;
 }
 
-.search-result-container {
+.movie-item-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-bottom: 6px;
+  background-color: #bbe5b3;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+.nominate-button {
   padding-left: 12px;
   padding-right: 12px;
   padding-top: 6px;
   padding-bottom: 6px;
+  border-radius: 8px;
+  background-color: #006fbb;
+  color: white;
 }
 
-.movie-button {
-  display: flex;
-  flex-grow: initial;
-  flex-shrink: initial;
+.nominate-button:disabled {
+  background-color: gray;
+  color: black;
 }
 
-.nomination-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.remove-button {
+  background-color: #de3618;
+  color: white;
+  font-weight: bold;
   padding-left: 12px;
   padding-right: 12px;
   padding-top: 6px;
   padding-bottom: 6px;
+  border-radius: 8px;
 }
 
 .app-container {

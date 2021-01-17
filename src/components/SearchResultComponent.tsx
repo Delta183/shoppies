@@ -13,15 +13,17 @@ const SearchResultComponent = (props: IProps) => {
     props.onAddNominationClick(props.imdbID);
   };
   return (
-    <div className={"search-result-container"}>
+    <div className={"movie-item-container"}>
       <div>
         {props.result.Title} ({props.result.Year})
       </div>
-      <div className={"movie-button"}>
-        <button onClick={onClick} disabled={props.isNominated}>
-          Nominate
-        </button>
-      </div>
+      <button
+        className={"nominate-button"}
+        onClick={onClick}
+        disabled={props.isNominated}
+      >
+        Nominate
+      </button>
     </div>
   );
 };

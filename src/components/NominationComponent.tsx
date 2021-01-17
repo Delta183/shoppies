@@ -12,13 +12,13 @@ const NominationComponent = (props: IProps) => {
     props.onRemoveNominationClick(props.imdbID);
   };
   return (
-    <div className={"nomination-container"}>
+    <div className={"movie-item-container"}>
       <div>
         {props.nomination.Title} ({props.nomination.Year})
       </div>
-      <div className={"movie-button"}>
-        <button onClick={onClick}>Remove</button>
-      </div>
+      <button className={"remove-button"} onClick={onClick}>
+        Remove
+      </button>
     </div>
   );
 };
