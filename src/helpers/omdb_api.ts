@@ -6,14 +6,15 @@ const searchMoviesWithQuery = async (
   query: string,
   callback: (results: Movie[], error: Error | null) => void
 ) => {
-  if (query.length === 0) {
+  const trimmedQuery = query.trim();
+  if (trimmedQuery.length === 0) {
     callback([], null);
     return;
   }
 
   fetch(
     `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${encodeURIComponent(
-      query
+      trimmedQuery
     )}&type=movie`,
     {
       method: "GET",
