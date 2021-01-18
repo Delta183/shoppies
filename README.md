@@ -64,11 +64,12 @@ Be sure to set the Configuration Variable for your API key in order for search q
 
 **Portrait**
 
-<img src="./readme_resources/mobile_portrait.jpeg" width=50% height=50%> 
+<img src="./readme_resources/mobile_portrait.jpeg" width=50% height=50%>
 
 **Landscape**
 
-<img src="./readme_resources/mobile_landscape.jpeg" width=50% height=50%> 
+<img src="./readme_resources/mobile_landscape.jpeg" width=50% height=50%>
 
 ### Accessibility
+
 Most importantly, I built for accessibility in mind so please watch the video titled `app_demo.mp4` in the `readme_resources` folder.
