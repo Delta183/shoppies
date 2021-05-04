@@ -5,6 +5,7 @@ import SearchResultListComponent from "./SearchResultListComponent";
 interface IProps {
   results: Movie[];
   nominations: Movie[];
+  MAX_NOMINATION_LENGTH:number;
   query: string;
   searchResultError: Error | null;
   onAddNominationClick: (imdbID: string) => void;
@@ -24,6 +25,7 @@ const ContentContainerComponent = (props: IProps) => {
       <NominationsListComponent
         nominations={props.nominations}
         onRemoveNominationClick={props.onRemoveNominationClick}
+        MAX_NOMINATION_LENGTH={props.MAX_NOMINATION_LENGTH}
       />
     </div>
   );

@@ -82,6 +82,7 @@ function App() {
         query={input}
         onAddNominationClick={addNomination}
         onRemoveNominationClick={removeNomination}
+        MAX_NOMINATION_LENGTH={MAX_NOMINATION_LENGTH}
       />
       <AttributionComponent />
     </div>
