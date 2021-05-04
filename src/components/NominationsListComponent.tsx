@@ -1,5 +1,6 @@
 import { Movie } from "../models/Movie";
 import NominationComponent from "./NominationComponent";
+import checkmark from "../resources/checkmark.png";
 
 interface IProps {
   nominations: Movie[];
@@ -10,7 +11,10 @@ interface IProps {
 const NominationsListComponent = (props: IProps) => {
   let banner = <div></div>;
   if (props.nominations.length >= props.MAX_NOMINATION_LENGTH) {
-    banner = <div>Bababooey</div>;
+    banner = <div className="nomination-banner">
+      You have successfully added 5 movie nominations!
+      <img src={checkmark} height="36px" width="36px"/>
+    </div>;
   }
   else{
     banner = <div></div>;
@@ -18,7 +22,6 @@ const NominationsListComponent = (props: IProps) => {
   return (
     <div className={"content-list-container"}>
       <div className={"content-list-header"}>Nominations</div>
-      {/* Banner */}
       {banner}
       {props.nominations.map((nomination) => {
         return (

@@ -22,6 +22,8 @@
   border-radius: 8px;
 }
 
+
+
 /* Common movie components (Use for rendering and search of nominations */
 .movie-item-container {
   display: flex;
@@ -132,6 +134,19 @@
 .remove-button {
   background-color: #de3618;
   color: white;
+}
+
+.nomination-banner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 6px;
+  font-size: 20px;
+  background-color: #FFFFFF;
+  border: 2px solid black;
+  border-radius: 8px;
 }
 
 /* Title Component */
