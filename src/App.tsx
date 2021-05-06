@@ -77,7 +77,7 @@ function App() {
   let alert = <div/>;
 
   if(atMax === true){
-    alert = <SweetAlert danger title="Error" onConfirm={hideAlert}>You cannot add more than 5 nominations. Please remove one if you wish to add another.</SweetAlert>;
+    alert = <SweetAlert danger title="Cannot add Nomination." onConfirm={hideAlert}>You cannot add more than 5 nominations. Please remove one if you wish to add another.</SweetAlert>;
   } else{
     alert = <div/>;
   }
