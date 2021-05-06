@@ -9,12 +9,16 @@ import searchMoviesWithQuery from "./helpers/omdb_api";
 import findMovieByImdbId from "./helpers/movie_array_helpers";
 import useLocalStorage from "./helpers/local_storage_hook";
 import AttributionComponent from "./components/AttributionComponent";
+import SweetAlert from 'react-bootstrap-sweetalert';
+
 
 const DEBOUNCE_DURATION = 500;
 const MAX_NOMINATION_LENGTH = 5;
 const LOCAL_STORAGE_NOMINATIONS_KEY = "nominations";
 
+
 function App() {
+  const [atMax, setAtMax] = useState(false);
   const [input, setInput] = useState("");
   const [searchResults, setSearchResults] = useState(Array<Movie>());
   const [nominations, setNominations] = useLocalStorage(
@@ -25,12 +29,14 @@ function App() {
     null
   );
 
+  const hideAlert = async () => {
+    setAtMax(false);
+  }
+
   const addNomination = async (imdbID: string) => {
     if (nominations.length >= MAX_NOMINATION_LENGTH) {
-      alert(
-        "Cannot add more nominations. Please remove one to add a new nomination."
-      );
-      return;
+      setAtMax(true);
+      return ;
     }
 
     const movie = findMovieByImdbId(imdbID, searchResults);
@@ -68,6 +74,13 @@ function App() {
     debouncedFunction();
   };
 
+  let alert = <div/>;
+
+  if(atMax === true){
+    alert = <SweetAlert danger title="Error" onConfirm={hideAlert}>You cannot add more than 5 nominations. Please remove one if you wish to add another.</SweetAlert>;
+  } else{
+    alert = <div/>;
+  }
   return (
     <div className="app-container">
       <TitleComponent />
@@ -75,6 +88,10 @@ function App() {
         input={input}
         onChange={onSearchBarTextChange}
       />
+      <div>
+      {alert}
+
+      </div>
       <ContentContainerComponent
         searchResultError={searchResultError}
         results={searchResults}

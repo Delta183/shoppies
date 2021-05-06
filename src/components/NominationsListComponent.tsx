@@ -13,7 +13,7 @@ const NominationsListComponent = (props: IProps) => {
   if (props.nominations.length >= props.MAX_NOMINATION_LENGTH) {
     banner = <div className="nomination-banner">
       You have successfully added 5 movie nominations!
-      <img src={checkmark} height="36px" width="36px"/>
+      <img src={checkmark} alt="checkmark" height="36px" width="36px"/>
     </div>;
   }
   else{
