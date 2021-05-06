@@ -106,7 +106,8 @@
 }
 
 .search-title-label {
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 300;
   margin-bottom: 12px;
 }
 
@@ -168,7 +169,7 @@
 
 .title-label {
   font-family: PoetsenOneRegular;
-  font-size: 50px;
+  font-size: 55px;
   margin-left: 12px;
   font-weight: bold;
 }
