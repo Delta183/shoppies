@@ -90,7 +90,6 @@ function App() {
       />
       <div>
       {alert}
-
       </div>
       <ContentContainerComponent
         searchResultError={searchResultError}

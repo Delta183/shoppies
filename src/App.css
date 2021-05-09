@@ -73,6 +73,12 @@
 .nominate-button {
   background-color: #006fbb;
   color: white;
+  transition-duration: 0.4s;
+}
+
+.nominate-button:hover {
+  background-color: #55baff;
+  color: black;
 }
 
 .nominate-button:disabled {
@@ -107,7 +113,7 @@
 
 .search-title-label {
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 600;
   margin-bottom: 12px;
 }
 
@@ -136,7 +142,14 @@
 .remove-button {
   background-color: #de3618;
   color: white;
+  transition-duration: 0.4s;
 }
+
+.remove-button:hover {
+  background-color: pink; 
+  color: black;
+}
+
 
 .nomination-banner {
   display: flex;
@@ -169,7 +182,7 @@
 
 .title-label {
   font-family: PoetsenOneRegular;
-  font-size: 55px;
+  font-size: 80px;
   margin-left: 12px;
   font-weight: bold;
 }
